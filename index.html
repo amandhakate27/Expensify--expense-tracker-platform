@@ -12,15 +12,12 @@
 
 <body>
     <section class="main-section">
-
         <div class="sidebar">
             <div class="top">
                 <div class="logo">
                     <span class="logoIcon"><i class="bxf bx-layers"></i></span>
                     <div class="logo-text">
-                        <h1 class="logoName">
-                            Expensify
-                        </h1>
+                        <h1 class="logoName">Expensify</h1>
                         <span class="logoSubtext">Enterprise Finance</span>
                     </div>
                 </div>
@@ -38,68 +35,70 @@
             <div class="bottom">
                 <button><i class="bx bx-plus"></i> <span>Add Transactions</span></button>
             </div>
-
         </div>
-        <div class="navbar">
 
+        <div class="navbar">
             <span>username</span>
             <div class="logout">
                 <i class="bx bx-arrow-out-right-circle-half"></i>
                 <span class="logout-text">Logout</span>
             </div>
-
-
         </div>
-        <div class="dashboard">
-            <div class="heading">
-                <h1>Financial Overview</h1>
-                <span>Real-time tracking application with data visualization</span>
-            </div>
-            <div class="dashboard-cards">
-                <div class="current-balance">
-                    <span id="dashboard-icon">
-                        <i class="bxf bx-bank"></i>
-                    </span>
-                    <p>Current Balance</p>
-                    <h2>$40000.00</h2>
-                </div>
-                <div class="total-income">
-                    <span id="dashboard-icon">
-                        <i class="bxf bx-trending-up"></i>
-                    </span>
-                    <p>Total Income</p>
-                    <h2>$54000.00</h2>
-                </div>
-                <div class="total-expense">
-                    <span id="dashboard-icon">
-                        <i class="bxf bx-trending-down"></i>
-                    </span>
-                    <p>Total Expenses</p>
-                    <h2>$14000.00</h2>
-                </div>
-                <div class="total-transactions">
-                    <span id="dashboard-icon">
-                        <i class="bxf bx-piggy-bank"></i>
-                    </span>
-                    <p>Total Transactions</p>
-                    <h2>4</h2>
-                </div>
-            </div>
 
-        </div>
-        <div class="charts-section"></div>
-        <div class="transactions-section"></div>
-        <div class="preference-section">
-            <h2>Preferences</h2>
-            <div class="dark-mode">
-                <span>Dark Mode</span>
-                <label class="toggle-simple">
-                    <input type="checkbox" id="darkModeToggle">
-                    <span class="toggle-button"></span>
-                </label>
+        <main class="main-content">
+            <div class="dashboard-content">
+                <div class="dashboard">
+                    <div class="heading">
+                        <h1>Financial Overview</h1>
+                        <span>Real-time tracking application with data visualization</span>
+                    </div>
+                    <div class="dashboard-cards">
+                        <div class="current-balance">
+                            <span id="dashboard-icon">
+                                <i class="bxf bx-bank"></i>
+                            </span>
+                            <p>Current Balance</p>
+                            <h2>$40000.00</h2>
+                        </div>
+                        <div class="total-income">
+                            <span id="dashboard-icon">
+                                <i class="bxf bx-trending-up"></i>
+                            </span>
+                            <p>Total Income</p>
+                            <h2>$54000.00</h2>
+                        </div>
+                        <div class="total-expense">
+                            <span id="dashboard-icon">
+                                <i class="bxf bx-trending-down"></i>
+                            </span>
+                            <p>Total Expenses</p>
+                            <h2>$14000.00</h2>
+                        </div>
+                        <div class="total-transactions">
+                            <span id="dashboard-icon">
+                                <i class="bxf bx-piggy-bank"></i>
+                            </span>
+                            <p>Total Transactions</p>
+                            <h2>4</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="charts-section"></div>
+                <div class="transactions-section"></div>
+                <div class="preference-section">
+                    <h2>Preferences</h2>
+                    <div class="dark-mode">
+                        <span>Dark Mode</span>
+                        <label class="toggle-simple">
+                            <input type="checkbox" id="darkModeToggle">
+                            <span class="toggle-button"></span>
+                        </label>
+                    </div>
+                    <button><i class="bxf bx-trash"></i>Reset All Data</button>
+                </div>
             </div>
-            <button><i class="bxf bx-trash"></i>Reset All Data</button>
-        </div>
+        </main>
     </section>
 </body>
 
