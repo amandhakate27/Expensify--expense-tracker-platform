@@ -1,0 +1,393 @@
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@200..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+}
+
+
+.main-section {
+    min-height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 19% 60% 20%;
+    grid-template-rows: 10% 40% 25% 25% 50%;
+    grid-template-areas:
+        "sidebar navbar navbar"
+        "sidebar dashboard dashboard"
+        "sidebar charts-section preference-section"
+        "sidebar charts-section ."
+        "sidebar transactions-section transactions-section";
+    gap: 4px;
+    background-color: #F8F9FB;
+    overflow-x: hidden;
+}
+
+/* sidebar */
+.sidebar {
+    height: 100vh;
+    grid-area: sidebar;
+    background-color: white;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* border: 1px solid #a2a2a2; */
+    position: sticky;
+    top: 0;
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+}
+
+.logoIcon {
+    font-size: clamp(1.5rem, 2rem, 3rem);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logoName {
+    font-size: clamp(1.5rem, 2rem, 3rem);
+    font-weight: 600;
+}
+
+.logoSubtext {
+    font-size: clamp(0.8rem, 1rem, 1.2rem);
+    color: #6B7280;
+}
+
+.pages {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.dashboard-page {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    color: #6B7280;
+    font-size: clamp(1.1rem, 1.3rem, 1.5rem);
+}
+
+.settings-page {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    color: #6b7280;
+    font-size: clamp(1.1rem, 1.3rem, 1.5rem);
+}
+
+.dashboard-page:hover,
+.dashboard-page:focus {
+    background-color: #DBEAFE;
+    color: #1E40AF;
+}
+
+.settings-page:hover,
+.settings-page:focus {
+    background-color: #DBEAFE;
+    color: #1E40AF;
+}
+
+.bottom button {
+    background-color: black;
+    color: white;
+    padding: clamp(0.7rem, 0.8rem, 1rem);
+    border: none;
+    border-radius: 0.4rem;
+    font-size: clamp(1rem, 1.2rem, 1.7rem);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.bottom button i {
+    font-size: clamp(1rem, 1.2rem, 1.4rem);
+}
+
+
+
+
+/* navbar */
+
+
+.navbar {
+    grid-area: navbar;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    justify-content: flex-end;
+    padding: 0 1.5rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.navbar span {
+    font-size: clamp(1.1rem, 1.3rem, 1.5rem);
+}
+
+.logout {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.4rem;
+    border: 1.5px solid #b3b5b9;
+}
+
+.logout:hover {
+    background-color: black;
+    color: white;
+    border: 1.5px solid black;
+    transition: all 0.5s ease;
+}
+
+.logout i {
+    font-weight: 600;
+}
+
+.logout span {
+    font-size: clamp(1.1rem, 1.3rem, 1.5rem);
+}
+
+/* dashboard */
+.dashboard {
+    grid-area: dashboard;
+    background-color: white;
+    /* background-color: orange; */
+    padding: 1.5rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.heading h1 {
+    font-size: clamp(1.5rem, 2rem, 3rem);
+    font-weight: 600;
+}
+
+.heading span {
+    font-size: clamp(0.8rem, 1rem, 1.2rem);
+    color: #6B7280;
+}
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.dashboard-cards div {
+    background-color: #F8F9FB;
+    border: 1px solid #e5e7eb;
+    padding: 1.3rem;
+    height: 9rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.dashboard-cards p {
+    font-size: clamp(0.8rem, 1rem, 1.2rem);
+    color: #6B7280;
+}
+
+.dashboard-cards h2 {
+    font-size: clamp(1.4rem, 1.8rem, 3rem);
+    font-weight: 600;
+}
+
+.dashboard-cards #dashboard-icon {
+    height: 2.5rem;
+    width: 2.5rem;
+    padding: 0.5rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+#dashboard-icon i {
+    font-size: 1.3rem;
+}
+
+.current-balance span {
+    background-color: #DBEAFE;
+    color: #1E40AF;
+}
+
+.total-income span {
+    background-color: #D1FAE5;
+    color: #065F46;
+}
+
+.total-expense span {
+    background-color: #FEE2E2;
+    color: #991B1B;
+}
+
+.total-transactions span {
+    background-color: #f9e1cf;
+    color: orangered;
+}
+.preference-section button:hover {
+    background-color: #991B1B;
+    color: white;
+    transition: all 0.5s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.charts-section {
+    grid-area: charts-section;
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    padding: 1.5rem;
+    border-radius: 1rem;
+}
+
+.transactions-section {
+    grid-area: transactions-section;
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    padding: 1.5rem;
+    border-radius: 1rem;
+}
+
+.preference-section {
+    height: 100%;
+    grid-area: preference-section;
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    padding: 1.3rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.preference-section h2 {
+    font-size: clamp(1.2rem, 1.5rem, 3rem);
+    font-weight: 600;
+}
+
+.dark-mode {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dark-mode span {
+    font-size: clamp(1rem, 1.2rem, 1.5rem);
+}
+
+.toggle-simple {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.toggle-simple input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #e4e4e7;
+    border-radius: 24px;
+    transition: background-color 0.2s ease;
+}
+
+.toggle-button:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+}
+
+.toggle-simple input:checked+.toggle-button {
+    background-color: #3B82F6;
+}
+
+.toggle-simple input:checked+.toggle-button:before {
+    transform: translateX(20px);
+}
+
+.preference-section button {
+    background-color: #FEE2E2;
+    color: #991B1B;
+    padding: clamp(0.4rem, 0.7rem, 0.1rem);
+    border: none;
+    border-radius: 0.4rem;
+    font-size: clamp(1rem, 1.2rem, 1.7rem);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
