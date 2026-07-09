@@ -16,11 +16,11 @@
         <div class="signup-container">
             <h2>Create Account</h2>
             <h3>Join Expensify</h3>
-            <form>
+            <form class="signup-form">
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username" placeholder="Choose a Username" required>
+                <input type="text" id="signup-username" name="username" placeholder="Choose a Username" required>
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Password" required>
+                <input type="password" id="signup-password" name="password" placeholder="Password" required>
                 <button type="submit">Register</button>
             </form>
             <p>Already have an account? <a href="#" id="login-link">Login here</a></p>
@@ -31,7 +31,7 @@
         <div class="login-container">
             <h2>Welcome Back</h2>
             <h3>Login to Expensify</h3>
-            <form>
+            <form class="login-form">
                 <label for="login-username">Username</label>
                 <input type="text" id="login-username" name="login-username" placeholder="Enter your username" required>
                 <label for="login-password">Password</label>
@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="pages">
-                    <div class="dashboard-page">
+                    <div class="dashboard-page active">
                         <span><i class="bx bx-grid"></i></span>
                         <span>Dashboard</span>
                     </div>
@@ -66,12 +66,12 @@
                 </div>
             </div>
             <div class="bottom">
-                <button><i class="bx bx-plus"></i> <span>Add Transactions</span></button>
+                <button id="addTransactionsBtn"><i class="bx bx-plus"></i> <span>Add Transactions</span></button>
             </div>
         </div>
         <!-- navbar -->
         <div class="navbar">
-            <span>username</span>
+            <span>Hello, username</span>
             <div class="logout">
                 <i class="bx bx-arrow-out-right-circle-half"></i>
                 <span class="logout-text">Logout</span>
@@ -92,28 +92,28 @@
                                 <i class="bxf bx-bank"></i>
                             </span>
                             <p>Current Balance</p>
-                            <h2>$40000.00</h2>
+                            <h2 id="current-balance">$0</h2>
                         </div>
                         <div class="total-income">
                             <span class="dashboard-icon">
                                 <i class="bxf bx-trending-up"></i>
                             </span>
                             <p>Total Income</p>
-                            <h2>$54000.00</h2>
+                            <h2 id="total-income">$0</h2>
                         </div>
                         <div class="total-expense">
                             <span class="dashboard-icon">
                                 <i class="bxf bx-trending-down"></i>
                             </span>
                             <p>Total Expenses</p>
-                            <h2>$14000.00</h2>
+                            <h2 id="total-expense">$0</h2>
                         </div>
                         <div class="total-transactions">
                             <span class="dashboard-icon">
                                 <i class="bxf bx-piggy-bank"></i>
                             </span>
                             <p>Total Transactions</p>
-                            <h2>4</h2>
+                            <h2 id="total-transactions">0</h2>
                         </div>
                     </div>
                 </div>
@@ -128,16 +128,6 @@
                         <canvas id="cashFlowChart"></canvas>
                     </div>
 
-
-
-
-
-
-
-
-
-
-
                 </div>
 
                 <!-- transactions table -->
@@ -149,12 +139,12 @@
                     <div class="transactions-controls">
                         <div class="transaction-search">
                             <i class="bx bx-search"></i>
-                            <input type="text" placeholder="Search transactions...">
+                            <input id="searchbar" type="text" placeholder="Search transactions...">
                         </div>
                         <select class="transaction-filter">
-                            <option>All Types</option>
-                            <option>Income</option>
-                            <option>Expense</option>
+                            <option value="all">All Types</option>
+                            <option value="income">Income</option>
+                            <option value="expense">Expense</option>
                         </select>
                     </div>
 
@@ -170,7 +160,7 @@
                                 </tr>
                             </thead>
                             <tbody class="transactions-body">
-                                <tr>
+                                <!-- <tr>
                                     <td class="transaction-date">2026-06-29</td>
                                     <td class="transaction-description">Salary</td>
                                     <td><span class="transaction-category">Salary</span></td>
@@ -181,31 +171,12 @@
                                             <i class="bxf bx-trash trash-icon"></i>
                                         </div>
                                     </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="transaction-date">2026-06-26</td>
-                                    <td class="transaction-description">Paisa Gaya</td>
-                                    <td><span class="transaction-category">Entertainment</span></td>
-                                    <td class="transaction-amount transaction-expense">-$4000.00</td>
-                                    <td>
-                                        <div class="transaction-actions">
-                                            <i class="bxf bx-pencil edit-icon"></i>
-                                            <i class="bxf bx-trash trash-icon"></i>
-                                        </div>
-                                    </td>
-                                </tr>
-
-
-
-
+                                </tr> -->
                             </tbody>
                         </table>
                     </div>
 
                 </div>
-
-
 
                 <!-- preference section -->
                 <div class="preference-section">
@@ -252,7 +223,9 @@
         </main>
     </section>
 
-    <section class="add-transactions">
+
+    <!--Modal for adding transactions -->
+    <section class="add-transactions" id="addTransactionsModal">
         <div class="add-transactions-container">
             <div class="add-transactions-header">
                 <h2>Add Transaction</h2>
@@ -264,7 +237,7 @@
             <form class="add-transaction-form">
                 <div class="field-group full-width">
                     <label for="transaction-type">Type</label>
-                    <select id="transaction-type" name="transaction-type">
+                    <select id="transaction-type" name="transaction-type" required>
                         <option value="expense">Expense</option>
                         <option value="income">Income</option>
                     </select>
@@ -273,24 +246,24 @@
                 <div class="field-group full-width">
                     <label for="transaction-description">Description</label>
                     <input type="text" id="transaction-description" name="transaction-description"
-                        placeholder="e.g. Amazon, Salary, Coffee">
+                        placeholder="e.g. Amazon, Salary, Coffee" required>
                 </div>
 
                 <div class="field-row">
                     <div class="field-group half-width">
                         <label for="transaction-amount">Amount</label>
                         <input type="number" id="transaction-amount" name="transaction-amount" placeholder="0.00"
-                            step="0.01" min="0">
+                            step="0.01" min="0" required>
                     </div>
                     <div class="field-group half-width">
                         <label for="transaction-date">Date</label>
-                        <input type="date" id="transaction-date" name="transaction-date" value="2026-07-04">
+                        <input type="date" id="transaction-date" name="transaction-date" value="2026-07-04" required>
                     </div>
                 </div>
 
                 <div class="field-group full-width">
                     <label for="transaction-category">Category</label>
-                    <select id="transaction-category" name="transaction-category">
+                    <select id="transaction-category" name="transaction-category" required>
                         <option value="">Select a category</option>
                         <option value="food-dining">Food & Dining</option>
                         <option value="shopping">Shopping</option>
@@ -309,6 +282,7 @@
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="index.js"></script>
 </body>
 
